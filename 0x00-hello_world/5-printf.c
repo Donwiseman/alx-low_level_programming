@@ -2,7 +2,7 @@
 
 
 /**
- * main function: Use printf to print to std output
+ * main - Use printf to print to std output
  * Return: returns 0 if no error in execution occurs
  */
 int main(void)
