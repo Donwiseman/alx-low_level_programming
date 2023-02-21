@@ -16,12 +16,10 @@ int main(void)
 		while (loop1b < 10)
 		{
 			int loop2a = loop1a;
-			/*to avoid repitition with first 2-digit*/
 			int loop2b = loop1b + 1;
 
 			while (loop2a < 10)
 			{
-
 				while (loop2b < 10)
 				{
 					/*print first two digit and a space*/
