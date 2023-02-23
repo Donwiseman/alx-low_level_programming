@@ -10,7 +10,7 @@ int _isalpha(int c)
 {
 	int is_alpha = isalpha(c);
 
-	if(is_alpha > 0)
+	if (is_alpha > 0)
 		return (1);
 	else
 		return (0);
