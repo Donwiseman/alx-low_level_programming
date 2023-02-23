@@ -8,9 +8,9 @@
 */
 int _islower(int c)
 {
-	int is_low = islow(c);
+	int is_low = islower(c);
 
-	If(is_low > 0)
+	if(is_low > 0)
 		return (1);
 	else
 		return (0);
