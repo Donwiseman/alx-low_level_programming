@@ -11,9 +11,8 @@ void print_most_numbers(void)
 
 	while (n < 10)
 	{
-		if (n == 2 || n == 4)
-			continue;
-		_putchar(48 + n);
+		if (!(n == 2 || n == 4))
+			_putchar(48 + n);
 		n++;
 	}
 	_putchar('\n');
