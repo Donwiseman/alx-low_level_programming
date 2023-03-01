@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * swap_int - swaps the values of two given integer prameters
  * @a: pointer parameter that points to an int
@@ -5,8 +7,8 @@
  */
 void swap_int(int *a, int *b)
 {
-	int *x = a;
+	int x = *a;
 
 	*a = *b;
-	*b = *x;
+	*b = x;
 }
