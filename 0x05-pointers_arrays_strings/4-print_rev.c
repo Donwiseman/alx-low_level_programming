@@ -19,7 +19,10 @@ void print_rev(char *s)
 		p--;
 		_putchar(*p);
 		if (p == s)
+		{
+			_putchar('\0');
 			break;
+		}
 	}
 	_putchar('\n');
 }
