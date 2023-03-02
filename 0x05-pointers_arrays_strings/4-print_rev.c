@@ -7,20 +7,22 @@
 void print_rev(char *s)
 {
 	char *p = s;
+	int x = 1;
 
-	while (1)
+	if (*p == '')
+		x = 0;
+	while (x)
 	{
 		if (!*p)
 			break;
 		p++;
 	}
-	while (1)
+	while (x)
 	{
 		p--;
 		_putchar(*p);
 		if (p == s)
 		{
-			_putchar('\0');
 			break;
 		}
 	}
