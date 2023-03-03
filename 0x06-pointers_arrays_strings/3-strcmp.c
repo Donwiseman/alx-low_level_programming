@@ -8,35 +8,22 @@
 int _strcmp(char *s1, char *s2)
 {
 	int value = 0;
-	int s1_check = 0;
-	int s2_check = 0;
 	char *p1 = s1;
 	char *p2 = s2;
 
-	while (s1_check == 0 || s2_check == 0)
+	while (*p1)
 	{
-		int s1_value = 0;
-		int s2_value = 0;
-
-		if (*p1)
+		if (*p1 == *p2)
 		{
-			s1_value = *p1;
 			p1++;
-		}
-		else
-		{
-			s1_check = 1;
-		}
-		if (*p2)
-		{
-			s2_value = *p2;
 			p2++;
+			continue;
 		}
 		else
 		{
-			s2_check = 1;
+			value = *p1 - *p2;
+			break;
 		}
-		value += (s1_value - s2_value);
 	}
 	return (value);
 }
