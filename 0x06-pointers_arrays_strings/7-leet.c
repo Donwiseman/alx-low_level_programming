@@ -7,19 +7,17 @@
 char *leet(char *s)
 {
 	char *p = s;
+	int i;
+	char codes[] = {'A', 'E', 'O', 'T', 'L'};
+	char encodings[] = {'4', '3', '0', '7', '1'};
 
 	while (*p)
 	{
-		if (*p == 97 || *p == 65)
-			*p = 52;
-		else if (*p == 101 || *p == 69)
-			*p = 51;
-		else if (*p == 111 || *p == 79)
-			*p = 48;
-		else if (*p == 116 || *p == 84)
-			*p = 55;
-		else if (*p == 108 || *p == 76)
-			*p = 49;
+		for (i = 0; i < 5; i++)
+		{
+			if (*p == codes[i] || *p == (codes[i] + 32))
+				*p = encodings[i];
+		}
 		p++;
 	}
 	return (s);
