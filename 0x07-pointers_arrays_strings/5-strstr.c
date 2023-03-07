@@ -16,6 +16,8 @@ char *_strstr(char *haystack, char *needle)
 	while (*p)
 	{
 		x = 0;
+		if (!*needle)
+			break;
 		while (*(needle + x))
 		{
 			not_found = 0;
