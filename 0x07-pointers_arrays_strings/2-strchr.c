@@ -11,7 +11,6 @@
 char *_strchr(char *s, char c)
 {
 	char *p = s;
-	char *y = NULL;
 
 	while (*p)
 	{
@@ -19,5 +18,5 @@ char *_strchr(char *s, char c)
 			return (p);
 		p++;
 	}
-	return (y);
+	return (NULL);
 }
