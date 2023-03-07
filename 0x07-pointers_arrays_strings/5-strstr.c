@@ -10,17 +10,16 @@
 char *_strstr(char *haystack, char *needle)
 {
 	char *p = haystack;
+	char *n = (char *) 0;
 	unsigned int x;
 	unsigned short int not_found;
 
 	while (*p)
 	{
 		x = 0;
-		if (!*needle)
-			break;
+		not_found = 0;
 		while (*(needle + x))
 		{
-			not_found = 0;
 			if (*(p + x) != *(needle + x))
 			{
 				not_found = 1;
@@ -32,5 +31,5 @@ char *_strstr(char *haystack, char *needle)
 			return (p);
 		p++;
 	}
-	return (NULL);
+	return (n);
 }
