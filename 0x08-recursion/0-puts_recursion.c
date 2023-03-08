@@ -9,7 +9,6 @@ void _puts_recursion(char *s)
 	char *p = s;
 	int end = 0;
 
-	_putchar(*p);
 	if (!*s)
 	{
 		_putchar('\n');
@@ -17,6 +16,7 @@ void _puts_recursion(char *s)
 	}
 	if (!end)
 	{
+		_putchar(*p);
 		p++;
 		_puts_recursion(p);
 	}
