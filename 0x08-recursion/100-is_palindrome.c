@@ -49,7 +49,7 @@ int _str_equal(char *s1, char *s2)
  */
 int is_palindrome(char *s)
 {
-	char s2[30] = "";
+	char s2[150] = "";
 	char *p = s2;
 
 	_reverse(s, p);
