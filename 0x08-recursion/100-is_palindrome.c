@@ -53,6 +53,5 @@ int is_palindrome(char *s)
 	char *p = s2;
 
 	_reverse(s, p);
-	printf("reverse string is %s\n", s2);
 	return (_str_equal(s, p));
 }
