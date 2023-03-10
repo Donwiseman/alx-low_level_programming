@@ -1,27 +1,44 @@
 #include <stdio.h>
 
 /**
+ * _strlen_recursion - returns the length of a string
+ * @s: pointer to a tsring whose length is to be returned
+ *
+ * Return: returns the length of the string
+ */
+int _strlen_recursion(char *s)
+{
+	int len = 0;
+
+	if (!*s)
+		return (0);
+	len++;
+	len += _strlen_recursion((s + 1));
+	return (len);
+}
+
+/**
  * _reverse - copies a string in reverse
  * @s: string to be reversed
  * @rev: string that has identical size to s to copy the reversed string to
+ * @x: string length
  *
  * Return: pointer to reversed string
  */
-char *_reverse(char *s, char *rev)
+char *_reverse(char *s, char *rev, int x)
 {
-	char *p = s;
-	char *r;
+	char *r = rev;
 
-	if (!*s)
+	if (x == 0)
 	{
+		*r = '\0';
 		return (rev);
 	}
-	p++;/*move pointer to next character for reursion*/
-	r = _reverse(p, rev);
-	p--;/*return pointer back to original position to copy*/
-	*r = *p;
+	*r = *(s + x - 1);
 	r++;
-	return (r);
+	x--;
+	_reverse(s, r, x);
+	return (rev);
 }
 
 /**
@@ -49,9 +66,10 @@ int _str_equal(char *s1, char *s2)
  */
 int is_palindrome(char *s)
 {
-	char s2[250] = "";
+	char s2[350] = "";
 	char *p = s2;
+	int x = _strlen_recursion(s);
 
-	_reverse(s, p);
+	_reverse(s, p, x);
 	return (_str_equal(s, p));
 }
