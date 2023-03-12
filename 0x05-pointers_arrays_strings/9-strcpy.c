@@ -8,8 +8,6 @@
 char *_strcpy(char *dest, char *src);
 {
 	char *p = dest;
-	int x;
-	int end = 0;
 
 	while (1)
 	{
