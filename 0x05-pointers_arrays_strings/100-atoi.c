@@ -50,7 +50,7 @@ int _atoi(char *s)
 	{
 		if (num_len == 0)
 		{
-			if (num + ((*(s + count)) - 48) > 2147483647)
+			if (num == 2147483640 && ((*(s + count)) - 48) > 7)
 				return (-2147483648);
 			num += ((*(s + count)) - 48);
 			break;
