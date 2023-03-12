@@ -32,10 +32,8 @@ int _atoi(char *s)
 
 	while (*p)
 	{
-		if (*p == '+')
-			x++;
 		if (*p == '-')
-			x--;
+			x++;
 		if (*p >= 48 && *p < 58)
 		{
 			while (*p >= 48 && *p < 58)
@@ -52,6 +50,8 @@ int _atoi(char *s)
 	{
 		if (num_len == 0)
 		{
+			if (num + ((*(s + count)) - 48) > 2147483647)
+				return (-2147483648);
 			num += ((*(s + count)) - 48);
 			break;
 		}
@@ -59,7 +59,7 @@ int _atoi(char *s)
 		count++;
 		num_len--;
 	}
-	if (x < 0)
+	if (x % 2 == 1)
 		return (-num);
 	else
 		return (num);
