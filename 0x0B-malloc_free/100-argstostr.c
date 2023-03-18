@@ -42,6 +42,7 @@ char *argstostr(int ac, char **av)
 	{
 		len += _strlen(av[count]) + 1;
 	}
+	len += 1; /*add an extra byte for the last terminating char*/
 	count = 0;
 	concat = malloc(len);
 	if (concat == NULL)
@@ -66,5 +67,6 @@ char *argstostr(int ac, char **av)
 		}
 		count++;
 	}
+	concat[x] = '\0';
 	return (concat);
 }
