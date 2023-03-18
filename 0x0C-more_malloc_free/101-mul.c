@@ -9,11 +9,6 @@ void print_number(unsigned long int n)
 {
 	unsigned int lastn;
 
-	/*check if negative*/
-	if (n < 0)
-	{
-		_putchar('-');
-	}
 	/*get last digit and remainder as absolute value*/
 	lastn = (n % 10);
 	n = (n / 10);
