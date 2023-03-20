@@ -58,7 +58,7 @@ char **word_array(char **arr, char *str)
 				count++;
 			}
 			w_end = count;
-			word = malloc(( w_end - w_start + 1) * sizeof(char));
+			word = malloc((w_end - w_start + 1) * sizeof(char));
 			if (word == NULL)
 				return (NULL);
 			for (x = 0; (w_start + x) <= w_end; x++)
@@ -87,8 +87,11 @@ char **word_array(char **arr, char *str)
 char **strtow(char *str)
 {
 	char **arr, **w_arr;
+	int count = word_counter(str);
 
-	arr = malloc((word_counter(str) + 1) * sizeof(char *));
+	if (count == 0)
+		return (NULL);
+	arr = malloc((count + 1) * sizeof(char *));
 	if (arr == NULL || str == NULL || *str == '\0')
 		return (NULL);
 	w_arr = word_array(arr, str);
