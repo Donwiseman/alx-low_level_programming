@@ -10,8 +10,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	unsigned int x;
 	int num;
+	va_list args;
 
-	va_list(args);
 	va_start(args, n);
 	if (separator == NULL)
 		separator = "";
