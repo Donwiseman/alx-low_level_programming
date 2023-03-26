@@ -38,6 +38,6 @@ int main(int argc, char *argv[])
 		exit(99);
 		return (99);
 	}
-	printf("%d\n",(op_p(a, b)));
+	printf("%d\n", (op_p(a, b)));
 	return (0);
 }
