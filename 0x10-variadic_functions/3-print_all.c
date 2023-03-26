@@ -15,15 +15,10 @@ void print_all(const char * const format, ...)
 	char *sep = ", ";
 	va_list args;
 
-	if (format == NULL)
-	{
-		printf("\n");
-		exit(0);
-	}
-	while (*(format + len))
+	while (format && (*(format + len)))
 		len++;
 	va_start(args, format);
-	while (index < len)
+	while (format && index < len)
 	{
 		f_char = *(format + index);
 		if (index == (len - 1))
