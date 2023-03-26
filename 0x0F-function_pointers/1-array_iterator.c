@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * array_iterator - iterates over each element of a given array running each
@@ -11,6 +11,8 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	size_t x;
 
+	if (!array || !action)
+		exit(0);
 	for (x = 0; x < size; x++)
 	{
 		action(array[x]);
