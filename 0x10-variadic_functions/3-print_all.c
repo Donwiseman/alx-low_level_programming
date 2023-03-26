@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * print_all - a function that can print char, string, integer and float values
@@ -14,6 +15,11 @@ void print_all(const char * const format, ...)
 	char *sep = ", ";
 	va_list args;
 
+	if (format == NULL)
+	{
+		printf("\n");
+		exit(0);
+	}
 	while (*(format + len))
 		len++;
 	va_start(args, format);
@@ -21,7 +27,7 @@ void print_all(const char * const format, ...)
 	{
 		f_char = *(format + index);
 		if (index == (len - 1))
-			sep = "\n";
+			sep = "";
 		switch (f_char)
 		{
 			case 'f':
@@ -45,5 +51,6 @@ void print_all(const char * const format, ...)
 		}
 		index++;
 	}
+	printf("\n");
 	va_end(args);
 }
