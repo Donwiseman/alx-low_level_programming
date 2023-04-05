@@ -24,8 +24,12 @@ void free_listint2t(listint_t *head)
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *temp = *head;
+	listint_t *temp;
 
+	if (head == NULL)
+		*temp = NULL;
+	else
+		*temp = *head;
 	if (temp && temp->next == NULL)
 	{
 		free(temp);
