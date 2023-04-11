@@ -24,11 +24,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (n < 1)
 	{
 		free(buf);
+		close(fd);
 		return (0);
 	}
 	if ((write(STDOUT_FILENO, buf, n)) < n)
 	{
 		free(buf);
+		close(fd);
 		return (0);
 	}
 	free(buf);
