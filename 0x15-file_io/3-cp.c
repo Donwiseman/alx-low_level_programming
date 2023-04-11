@@ -14,7 +14,7 @@ int open4rd(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 	return (fd);
@@ -33,7 +33,7 @@ int open4wrcr(char *filename)
 	fd = open(filename, O_WRONLY | O_CREAT, 0664);
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (fd);
@@ -55,7 +55,7 @@ int myread(int fd, char *buffer, int byte, char *filename)
 	n = read(fd, buffer, byte);
 	if (n == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 	return (n);
@@ -77,7 +77,7 @@ int mywrite(int fd, char *buffer, int byte, char *filename)
 	n = write(fd, buffer, byte);
 	if (n != byte)
 	{
-		dprintf(2, "Error: Can't write to %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (n);
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file1 = argv[1];
@@ -114,9 +114,9 @@ int main(int argc, char *argv[])
 			break;
 	}
 	if (close(fd1) == -1)
-		err = dprintf(2, "Error: Can't close fd %d\n", fd1);
+		err = dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 	if (close(fd2) == -1)
-		err = dprintf(2, "Error: Can't close fd %d\n", fd2);
+		err = dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 	if (err > 0)
 		exit(100);
 	exit(0);
