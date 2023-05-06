@@ -40,8 +40,14 @@ void print_magic(char *e_ident)
 
 	printf("  %-9s", mag);
 	for (x = 0; x < 16; x++)
+	{
+		if (x == 15)
+		{
+			printf("%02x\n", e_ident[x]);
+			break;
+		}
 		printf("%02x ", e_ident[x]);
-	printf("\n");
+	}
 }
 
 /**
