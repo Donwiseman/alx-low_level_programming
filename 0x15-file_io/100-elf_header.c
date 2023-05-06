@@ -259,7 +259,7 @@ int main(int ac, char **av)
 		return (98);
 	}
 	check_iden(e_ident, av[0]);
-	printf("ELF HEADER:\n");
+	printf("ELF Header:\n");
 	print_magic(e_ident);
 	class = print_class(e_ident, av[0]);
 	print_data(e_ident, av[0]);
