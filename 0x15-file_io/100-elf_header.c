@@ -136,6 +136,7 @@ void print_abi(char *e_ident)
 		"UNIX - NetBSD",
 		"UNIX - GNU",
 		"GNU/Hurd",
+		"Filler Alias",
 		"UNIX - Solaris",
 		"UNIX - AIX",
 		"IRIX",
