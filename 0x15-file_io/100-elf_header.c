@@ -66,7 +66,7 @@ int print_class(char *e_ident, char *av)
 		printf("%s\n", e_32);
 		return (1);
 	}
-	if (e_ident[4] == 2)
+	else
 	{
 		printf("%s\n", e_64);
 		return (2);
@@ -144,12 +144,13 @@ void print_abi(char *e_ident)
 		"Nuxi CloudABI",
 		"Stratus Technologies OpenVOS"
 	};
+	unsigned int x = (unsigned int) e_ident[7];
 
 	printf("  %-35s", osabi);
-	if (e_ident[7] > 17)
-		printf("<<unknown: %u>\n", e_ident[7]);
+	if (x > 17)
+		printf("<<unknown: %u>\n", x);
 	else
-		printf("%s\n", abi[e_ident[7]]);
+		printf("%s\n", abi[x]);
 }
 
 /**
@@ -180,12 +181,13 @@ void print_type(char *e_ident)
 		"CORE (Core file)"
 	};
 	char para[] = "Type:";
+	int x = (int) e_ident[16];
 
 	printf("  %-35s", para);
-	if (e_ident[16] > 4)
+	if (x > 4)
 		printf("HIPROC (Processor Specific)\n");
 	else
-		printf("%s\n", types[e_ident[16]]);
+		printf("%s\n", types[x]);
 }
 
 /**
@@ -232,7 +234,8 @@ void print_err(char *av)
 int main(int ac, char **av)
 {
 	char e_ident[18];
-	unsigned int fd, class, p32;
+	int fd, class;
+	unsigned int p32;
 	unsigned long int p64;
 
 	if (ac > 2)
